@@ -1,0 +1,32 @@
+\begin{figure}[h]
+    \centering
+    \begin{tabularx}{\textwidth}{X|X}
+        \textbf{Anwendungsfall ID} & MA-4 \\ \hline
+        \textbf{Anwendungsfallname} & Anfragen verwalten \\ \hline
+        \textbf{Initiierender Akteur} & Admin \\ \hline
+        \textbf{Weitere Akteure} & Nutzer \\ \hline
+        \textbf{Kurzbeschreibung} & 
+        Der Admin sieht alle offenen, vom Nutzer gestellten Anfragen und entscheidet darüber. \\ \hline
+        \textbf{Vorbedingungen} & 
+        Admin ist eingeloggt. \\ \hline
+        \textbf{Nachbedingungen} & 
+        Die betroffene Anfrage ist akzeptiert oder abgelehnt; das System ist ggf. angepasst. \\ \hline
+        \textbf{Ablauf} &
+            \begin{enumerate}
+                \item (Use-Case „Admin Login“) muss zuvor erfolgt sein.
+                \item Admin öffnet „Anfragen verwalten“.
+                \item Admin genehmigt oder lehnt einzelne Anfragen ab.
+                \item System ändert ggf. die Daten.
+            \end{enumerate}
+        \\ \hline
+        \textbf{Alternative} & 
+        Keine Anfragen vorhanden: System bleibt auf dem aktuellen Stand. \\ \hline
+        \textbf{Ausnahme} & / \\ \hline
+        \textbf{Benutzte Anwendungsfälle} & Admin Login \\ \hline
+        \textbf{Spezielle Anforderungen} & 
+        Es sollte mindestens eine Anfrage vom Nutzer existieren. \\ \hline
+        \textbf{Annahmen} & /
+    \end{tabularx}
+    \caption{Anwendungsfall MA-4 (Anfragen verwalten)}
+    \label{fig:anwendungsfall-app-tabelle-ma-4}
+\end{figure}

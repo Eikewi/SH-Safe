@@ -1,0 +1,109 @@
+\documentclass{report}
+
+\usepackage[utf8]{inputenc} % Zeichenkodierung
+\usepackage[ngerman]{babel} % Sprache (neue Rechtschreibung)
+
+\usepackage{float}
+\usepackage{placeins}
+\usepackage[table,xcdraw]{xcolor} % Tabellenfarben
+\usepackage{tabularx} % Dynamische Tabellenbreite
+\usepackage{tcolorbox} % Graue Boxen
+\usepackage{hyperref} % Links/URLs
+\usepackage{todonotes} % TODO-Notizen
+\usepackage{natbib} % Bibliographie
+\usepackage{fancyhdr} % Header und Footer
+\usepackage{multirow} % Mehrzeilige Tabellen
+\usepackage{geometry} % Seitenlayout
+\usepackage{color} % Textfarben
+\usepackage{graphicx} % Grafiken (für \includegraphics)
+
+% Seitenlayout
+\geometry{
+  bottom=3.5cm,
+  headheight=20pt % realistisch, sonst meckert fancyhdr
+}
+\setlength{\headheight}{20pt}
+
+% eigene Variablen
+\newcommand{\semester}{Wintersemster 25/26}
+\newcommand{\projektname}{Safe Kiel}
+
+
+% Bibstyle
+\bibliographystyle{plain}
+
+% Header / Footer
+\fancypagestyle{plain}{
+  \fancyhf{}% Clear header/footer
+  \fancyhead[R]{\includegraphics[width=4cm]{img/cau-logo-2017}} % rechter Header
+  \fancyhead[L]{\leftmark} % linker Header
+  \fancyfoot[R]{\thepage} % rechter Footer
+  \fancyfoot[L] % linker Footer
+}
+\pagestyle{plain}
+
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.2pt}
+\renewcommand{\chaptermark}[1]{\markboth{{#1}}{}}
+
+% Zahlen für Fußnoten
+\renewcommand{\thefootnote}{\arabic{footnote}}
+\renewcommand{\thempfootnote}{\arabic{mpfootnote}}
+
+% Titelseite
+\title{
+  \vspace*{-3cm}
+  Pflichtenheft\\[2mm]
+  {\color{gray}
+  \projektname\\
+  \semester %Hier war gruppennamen definiert, was zu einem Error im Log führte (Patrick, 09.12.2025)
+}\\[5mm]
+  \includegraphics[width=\textwidth]{img/logo}
+}
+
+\author{
+  \begin{tabular}{ll}
+    Roni      & Aba \\
+    Johannes  & Martinjonsan \\
+    Patrick   & Wernowski \\
+  \end{tabular}
+}
+
+\date{\today}
+
+% Dokument
+\begin{document}
+
+  % erste Seiten ohne Seitenzahl
+  \pagenumbering{gobble}
+  \maketitle
+  \tableofcontents
+
+  % ab hier normale Nummerierung
+  \clearpage
+  \pagenumbering{arabic}
+
+  \chapter{Produkteinsatz}\label{chp:produkteinsatz}
+  \input{kapitel/produkteinsatz}
+
+    \chapter{Lizenz}\label{chp:lizenz}
+    \pagenumbering{arabic} % Nummerierung starten
+    \input{kapitel/lizenz}
+
+  \chapter{Zielbestimmungen}\label{chp:zielbestimmungen}
+  \input{kapitel/zielbestimmungen}
+
+  \chapter{Produktfunktionen}\label{chp:produktfunktionen}
+  \input{kapitel/produktfunktionen}
+
+  
+
+  \chapter{Glossar}\label{chp:glossar}
+  \input{kapitel/glossar}
+
+  \bibliography{references}
+
+  % falls du am Ende wieder keine Seitenzahlen willst:
+  % \pagenumbering{gobble}
+
+\end{document}
